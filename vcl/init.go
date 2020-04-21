@@ -39,6 +39,10 @@ func toVersionString(ver uint32) string {
 	return fmt.Sprintf("%d.%d.%d.%d", byte(ver>>24), byte(ver>>16), byte(ver>>8), byte(ver))
 }
 
+func GetLibVersion() string {
+	return toVersionString(DLibVersion())
+}
+
 func DoInit() {
 	defer func() {
 		if err := recover(); err != nil {
@@ -47,7 +51,7 @@ func DoInit() {
 		}
 	}()
 	libVersion := DLibVersion()
-	fmt.Println("Library Version:", toVersionString(libVersion))
+	// fmt.Println("Library Version:", toVersionString(libVersion))
 	if libVersion < requireMinBinaryVersion {
 		panic("Require liblcl binary version >=2.0.0. Please go to \"https://github.com/ying32/govcl\" to download the latest binary.")
 	}

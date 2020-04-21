@@ -38,8 +38,389 @@ func getParamOf(index int, ptr uintptr) uintptr {
 
 // 回调过程
 func eventCallbackProc(f uintptr, args uintptr, argcount int) uintptr {
-	fmt.Println("here:", argcount, args, getParamOf(0, args))
 	v, ok := EventCallbackOf(f)
+
+	switch v.(type) {
+	// func(sender IObject)
+	case *TNotifyEvent:
+		v = *(v.(*TNotifyEvent))
+
+	case *TUDClickEvent:
+		v = *(v.(*TUDClickEvent))
+
+	case *TLVChangeEvent:
+		v = *(v.(*TLVChangeEvent))
+
+	case *TCloseEvent:
+		v = *(v.(*TCloseEvent))
+
+	case *TCloseQueryEvent:
+		v = *(v.(*TCloseQueryEvent))
+
+	case *TMenuChangeEvent:
+		v = *(v.(*TMenuChangeEvent))
+
+	case *TTVChangedEvent:
+		v = *(v.(*TTVChangedEvent))
+
+	case *TSysLinkEvent:
+		v = *(v.(*TSysLinkEvent))
+
+	case *TExceptionEvent:
+		v = *(v.(*TExceptionEvent))
+
+	case *TKeyEvent:
+		v = *(v.(*TKeyEvent))
+
+	case *TKeyPressEvent:
+		v = *(v.(*TKeyPressEvent))
+
+	case *TMouseEvent:
+		v = *(v.(*TMouseEvent))
+
+	case *TMouseMoveEvent:
+		v = *(v.(*TMouseMoveEvent))
+
+	case *TMouseWheelEvent:
+		v = *(v.(*TMouseWheelEvent))
+
+	case *TDrawItemEvent:
+		v = *(v.(*TDrawItemEvent))
+
+	case *TMenuDrawItemEvent:
+		v = *(v.(*TMenuDrawItemEvent))
+
+	case *TLVNotifyEvent:
+		v = *(v.(*TLVNotifyEvent))
+
+	case *TLVColumnClickEvent:
+		v = *(v.(*TLVColumnClickEvent))
+
+	case *TLVColumnRClickEvent:
+		v = *(v.(*TLVColumnRClickEvent))
+
+	case *TLVSelectItemEvent:
+		v = *(v.(*TLVSelectItemEvent))
+
+	case *TLVCheckedItemEvent:
+		v = *(v.(*TLVCheckedItemEvent))
+
+	case *TTabGetImageEvent:
+		v = *(v.(*TTabGetImageEvent))
+
+	case *TTVExpandedEvent:
+		v = *(v.(*TTVExpandedEvent))
+
+	case *TLVCompareEvent:
+		v = *(v.(*TLVCompareEvent))
+
+	case *TTVCompareEvent:
+		v = *(v.(*TTVCompareEvent))
+
+	case *TTVAdvancedCustomDrawEvent:
+		v = *(v.(*TTVAdvancedCustomDrawEvent))
+
+	case *TTVAdvancedCustomDrawItemEvent:
+		v = *(v.(*TTVAdvancedCustomDrawItemEvent))
+
+	case *TLVAdvancedCustomDrawEvent:
+		v = *(v.(*TLVAdvancedCustomDrawEvent))
+
+	case *TLVAdvancedCustomDrawItemEvent:
+		v = *(v.(*TLVAdvancedCustomDrawItemEvent))
+
+	case *TLVAdvancedCustomDrawSubItemEvent:
+		v = *(v.(*TLVAdvancedCustomDrawSubItemEvent))
+
+	case *TTBAdvancedCustomDrawEvent:
+		v = *(v.(*TTBAdvancedCustomDrawEvent))
+
+	case *TTBAdvancedCustomDrawBtnEvent:
+		v = *(v.(*TTBAdvancedCustomDrawBtnEvent))
+
+	case *TDropFilesEvent:
+		v = *(v.(*TDropFilesEvent))
+
+	case *TConstrainedResizeEvent:
+		v = *(v.(*TConstrainedResizeEvent))
+
+	case *THelpEvent:
+		v = *(v.(*THelpEvent))
+
+	case *TShortCutEvent:
+		v = *(v.(*TShortCutEvent))
+
+	case *TContextPopupEvent:
+		v = *(v.(*TContextPopupEvent))
+
+	case *TDragOverEvent:
+		v = *(v.(*TDragOverEvent))
+
+	case *TDragDropEvent:
+		v = *(v.(*TDragDropEvent))
+
+	case *TStartDragEvent:
+		v = *(v.(*TStartDragEvent))
+
+	case *TEndDragEvent:
+		v = *(v.(*TEndDragEvent))
+
+	case *TDockDropEvent:
+		v = *(v.(*TDockDropEvent))
+
+	case *TDockOverEvent:
+		v = *(v.(*TDockOverEvent))
+
+	case *TUnDockEvent:
+		v = *(v.(*TUnDockEvent))
+
+	case *TStartDockEvent:
+		v = *(v.(*TStartDockEvent))
+
+	case *TGetSiteInfoEvent:
+		v = *(v.(*TGetSiteInfoEvent))
+
+	case *TMouseWheelUpDownEvent:
+		v = *(v.(*TMouseWheelUpDownEvent))
+
+	case *TMessageEvent:
+		v = *(v.(*TMessageEvent))
+
+	case *TMovedEvent:
+		v = *(v.(*TMovedEvent))
+
+	case *TDrawCellEvent:
+		v = *(v.(*TDrawCellEvent))
+
+	case *TFixedCellClickEvent:
+		v = *(v.(*TFixedCellClickEvent))
+
+	case *TGetEditEvent:
+		v = *(v.(*TGetEditEvent))
+
+	case *TSelectCellEvent:
+		v = *(v.(*TSelectCellEvent))
+
+	case *TSetEditEvent:
+		v = *(v.(*TSetEditEvent))
+
+	case *TDrawSectionEvent:
+		v = *(v.(*TDrawSectionEvent))
+
+	case *TSectionNotifyEvent:
+		v = *(v.(*TSectionNotifyEvent))
+
+	case *TSectionTrackEvent:
+		v = *(v.(*TSectionTrackEvent))
+
+	case *TSectionDragEvent:
+		v = *(v.(*TSectionDragEvent))
+
+	case *TCustomSectionNotifyEvent:
+		v = *(v.(*TCustomSectionNotifyEvent))
+
+	// case *TGestureEvent:
+	// 	v = *(v.(*TGestureEvent))
+
+	case *TMouseActivateEvent:
+		v = *(v.(*TMouseActivateEvent))
+
+	case *TLBGetDataEvent:
+		v = *(v.(*TLBGetDataEvent))
+
+	case *TLBGetDataObjectEvent:
+		v = *(v.(*TLBGetDataObjectEvent))
+
+	case *TLBFindDataEvent:
+		v = *(v.(*TLBFindDataEvent))
+
+	case *TMeasureItemEvent:
+		v = *(v.(*TMeasureItemEvent))
+
+	case *TLVChangingEvent:
+		v = *(v.(*TLVChangingEvent))
+
+	case *TLVOwnerDataEvent:
+		v = *(v.(*TLVOwnerDataEvent))
+
+	case *TLVOwnerDataFindEvent:
+		v = *(v.(*TLVOwnerDataFindEvent))
+
+	case *TLVDeletedEvent:
+		v = *(v.(*TLVDeletedEvent))
+
+	case *TLVEditingEvent:
+		v = *(v.(*TLVEditingEvent))
+
+	case *TLVEditedEvent:
+		v = *(v.(*TLVEditedEvent))
+
+	case *TMenuMeasureItemEvent:
+		v = *(v.(*TMenuMeasureItemEvent))
+
+	case *TTabChangingEvent:
+		v = *(v.(*TTabChangingEvent))
+
+	case *TTVChangingEvent:
+		v = *(v.(*TTVChangingEvent))
+
+	case *TTVCollapsingEvent:
+		v = *(v.(*TTVCollapsingEvent))
+
+	case *TTVEditedEvent:
+		v = *(v.(*TTVEditedEvent))
+
+	case *TTVEditingEvent:
+		v = *(v.(*TTVEditingEvent))
+
+	case *TTVExpandingEvent:
+		v = *(v.(*TTVExpandingEvent))
+
+	case *TTVHintEvent:
+		v = *(v.(*TTVHintEvent))
+
+	case *TUDChangingEvent:
+		v = *(v.(*TUDChangingEvent))
+
+	case *TCreatingListErrorEvent:
+		v = *(v.(*TCreatingListErrorEvent))
+
+	case *TThumbPreviewItemRequestEvent:
+		v = *(v.(*TThumbPreviewItemRequestEvent))
+
+	case *TWindowPreviewItemRequestEvent:
+		v = *(v.(*TWindowPreviewItemRequestEvent))
+
+	case *TThumbButtonNotifyEvent:
+		v = *(v.(*TThumbButtonNotifyEvent))
+
+	case *TLVCustomDrawEvent:
+		v = *(v.(*TLVCustomDrawEvent))
+
+	case *TLVCustomDrawItemEvent:
+		v = *(v.(*TLVCustomDrawItemEvent))
+
+	case *TLVCustomDrawSubItemEvent:
+		v = *(v.(*TLVCustomDrawSubItemEvent))
+
+	case *TLVDrawItemEvent:
+		v = *(v.(*TLVDrawItemEvent))
+
+	case *TLVDataHintEvent:
+		v = *(v.(*TLVDataHintEvent))
+
+	case *TTVCustomDrawEvent:
+		v = *(v.(*TTVCustomDrawEvent))
+
+	case *TTVCustomDrawItemEvent:
+		v = *(v.(*TTVCustomDrawItemEvent))
+
+	case *TWebTitleChangeEvent:
+		v = *(v.(*TWebTitleChangeEvent))
+
+	case *TWebJSExternalEvent:
+		v = *(v.(*TWebJSExternalEvent))
+
+	case *TTaskDlgClickEvent:
+		v = *(v.(*TTaskDlgClickEvent))
+
+	case *TTaskDlgTimerEvent:
+		v = *(v.(*TTaskDlgTimerEvent))
+
+	case *TAlignPositionEvent:
+		v = *(v.(*TAlignPositionEvent))
+	default:
+		fmt.Printf("unknown event func pointer: %#v, %T\n", v, v)
+	}
+
+	// typeT := fmt.Sprintf("%T", v)
+
+	// var p *TNotifyEvent = nil
+
+	// if typeT[0] == '*' {
+	// 	v = *(v.(*(interface{})))
+	// }
+
+	// if typeT == "*vcl.TNotifyEvent" {
+	// 	v = *(v.(*TNotifyEvent))
+	// } else if typeT == "*vcl.TDragOverEvent" {
+	// 	v = *(v.(*TDragOverEvent))
+	// } else if typeT == "*vcl.TEndDragEvent" {
+	// 	v = *(v.(*TEndDragEvent))
+	// } else if typeT == "*vcl.TContextPopupEvent" {
+	// 	v = *(v.(*TContextPopupEvent))
+	// } else if typeT == "*vcl.TDragDropEvent" {
+	// 	v = *(v.(*TDragDropEvent))
+	// } else if typeT == "*vcl.TKeyEvent" {
+	// 	v = *(v.(*TKeyEvent))
+	// } else if typeT == "*vcl.TKeyPressEvent" {
+	// 	v = *(v.(*TKeyPressEvent))
+	// } else if typeT == "*vcl.TMouseEvent" {
+	// 	v = *(v.(*TMouseEvent))
+	// } else if typeT == "*vcl.TMouseMoveEvent" {
+	// 	v = *(v.(*TMouseMoveEvent))
+	// } else if typeT == "*vcl.THelpEvent" {
+	// 	v = *(v.(*THelpEvent))
+	// } else if typeT == "*vcl.TConstrainedResizeEvent" {
+	// 	v = *(v.(*TConstrainedResizeEvent))
+	// } else if typeT == "*vcl.TWndProcEvent" {
+	// 	v = *(v.(*TWndProcEvent))
+	// } else if typeT == "*vcl.TDropFilesEvent" {
+	// 	v = *(v.(*TDropFilesEvent))
+	// } else if typeT == "*vcl.TUDClickEvent" {
+	// 	v = *(v.(*TUDClickEvent))
+	// } else if typeT == "*vcl.TCloseEvent" {
+	// 	v = *(v.(*TCloseEvent))
+	// } else if typeT == "*vcl.TCloseQueryEvent" {
+	// 	v = *(v.(*TCloseQueryEvent))
+	// } else if typeT == "*vcl.TMenuChangeEvent" {
+	// 	v = *(v.(*TMenuChangeEvent))
+	// } else if typeT == "*vcl.TSysLinkEvent" {
+	// 	v = *(v.(*TSysLinkEvent))
+	// } else if typeT == "*vcl.TExceptionEvent" {
+	// 	v = *(v.(*TExceptionEvent))
+	// } else if typeT == "*vcl.TMouseWheelEvent" {
+	// 	v = *(v.(*TMouseWheelEvent))
+	// } else if typeT == "*vcl.TDrawItemEvent" {
+	// 	v = *(v.(*TDrawItemEvent))
+	// } else if typeT == "*vcl.TMenuDrawItemEvent" {
+	// 	v = *(v.(*TMenuDrawItemEvent))
+	// } else if typeT == "*vcl.TShortCutEvent" {
+	// 	v = *(v.(*TShortCutEvent))
+	// } else if typeT == "*vcl.TStartDragEvent" {
+	// 	v = *(v.(*TStartDragEvent))
+	// } else if typeT == "*vcl.TDockDropEvent" {
+	// 	v = *(v.(*TDockDropEvent))
+	// } else if typeT == "*vcl.TDockOverEvent" {
+	// 	v = *(v.(*TDockOverEvent))
+	// } else if typeT == "*vcl.TDockOverEvent" {
+	// 	v = *(v.(*TDockOverEvent))
+	// } else if typeT == "*vcl.TUnDockEvent" {
+	// 	v = *(v.(*TUnDockEvent))
+	// } else if typeT == "*vcl.TStartDockEvent" {
+	// 	v = *(v.(*TStartDockEvent))
+	// } else if typeT == "*vcl.TGetSiteInfoEvent" {
+	// 	v = *(v.(*TGetSiteInfoEvent))
+	// } else if typeT == "*vcl.TMouseWheelUpDownEvent" {
+	// 	v = *(v.(*TMouseWheelUpDownEvent))
+	// } else if typeT == "*vcl.TMessageEvent" {
+	// 	v = *(v.(*TMessageEvent))
+	// } else if typeT == "*vcl.TMouseActivateEvent" {
+	// 	v = *(v.(*TMouseActivateEvent))
+	// } else if typeT == "*vcl.TWindowPreviewItemRequestEvent" {
+	// 	v = *(v.(*TWindowPreviewItemRequestEvent))
+	// } else if typeT == "*vcl.TWndProcEvent" {
+	// 	v = *(v.(*TWndProcEvent))
+	// } else if typeT == "*vcl.TAlignPositionEvent" {
+	// 	v = *(v.(*TAlignPositionEvent))
+	// } else if typeT == "*vcl.TTaskDlgTimerEvent" {
+	// 	v = *(v.(*TTaskDlgTimerEvent))
+	// } else if typeT == "*vcl.TTaskDlgClickEvent" {
+	// 	v = *(v.(*TTaskDlgClickEvent))
+	// } else {
+	// 	fmt.Printf("unknown event func pointer: %#v, %#v, %#v, %#v, %T\n", argcount, args, getParamOf(0, args), v, v)
+	// }
+
 	if ok {
 
 		getVal := func(i int) uintptr {

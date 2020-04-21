@@ -70,7 +70,7 @@ func (f *TForm) SetOnDropFiles(fn TDropFilesEvent) {
 }
 
 // 窗口销毁事件
-func (f *TForm) SetOnDestroy(fn TNotifyEvent) {
+func (f *TForm) SetOnDestroy(fn *TNotifyEvent) {
 	Form_SetOnDestroy(f.instance, fn)
 }
 

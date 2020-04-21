@@ -92,6 +92,7 @@ func (a *TApplication) SetFormScaled(val bool) {
 // CN: 运行APP。
 // EN: Run the app.
 func (a *TApplication) Run() {
+
 	Application_Run(a.instance)
 }
 
