@@ -44,6 +44,16 @@ func (d *LazyDLL) Close() {
 }
 
 func (d *LazyDLL) call(proc *LazyProc, a ...uintptr) (r1, r2 uintptr, lastErr error) {
+	// defer func() {
+	// 	if r := recover(); r != nil {
+	// 		tk.Printfln("发生异常，错误信息：%v", r)
+	// 		os.Exit(1)
+
+	// 		return
+	// 	}
+
+	// }()
+
 	// 没到找到我封装的那个系统函数，就使用原始的
 	if d.mySyscall == nil {
 		return proc.CallOriginal(a...)
