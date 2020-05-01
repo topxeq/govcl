@@ -46,8 +46,8 @@ func (d *LazyDLL) Close() {
 func (d *LazyDLL) call(proc *LazyProc, a ...uintptr) (r1, r2 uintptr, lastErr error) {
 	// defer func() {
 	// 	if r := recover(); r != nil {
-	// 		tk.Printfln("发生异常，错误信息：%v", r)
-	// 		os.Exit(1)
+	// 		fmt.Printf("发生异常，错误信息：%v\n", r)
+	// 		// os.Exit(1)
 
 	// 		return
 	// 	}
@@ -56,13 +56,20 @@ func (d *LazyDLL) call(proc *LazyProc, a ...uintptr) (r1, r2 uintptr, lastErr er
 
 	// 没到找到我封装的那个系统函数，就使用原始的
 	if d.mySyscall == nil {
+
+		// fmt.Printf("here a1\n")
+
 		return proc.CallOriginal(a...)
 	}
+
+	// fmt.Printf("here a2\n")
+
 	err := proc.Find()
 	if err != nil {
 		fmt.Println("proc \"" + proc.lzProc.Name + "\" not find.")
 		return 0, 0, syscall.EINVAL
 	}
+
 	addr := proc.Addr()
 	if addr != 0 {
 		pLen := uintptr(len(a))
@@ -70,6 +77,8 @@ func (d *LazyDLL) call(proc *LazyProc, a ...uintptr) (r1, r2 uintptr, lastErr er
 		case 0:
 			return d.mySyscall.Call(addr, pLen)
 		case 1:
+			// fmt.Printf("addr: %#v, pLen: %#v, a[0]: %v\n", addr, pLen, a[0])
+
 			return d.mySyscall.Call(addr, pLen, a[0])
 		case 2:
 			return d.mySyscall.Call(addr, pLen, a[0], a[1])

@@ -31,6 +31,13 @@ func DoLibInit() {
 
 }
 
+func CloseLib() {
+	if libvcl != nil {
+		libvcl.Close()
+		libvcl = nil
+	}
+}
+
 // VCL或者LCL
 type TLibType int32
 

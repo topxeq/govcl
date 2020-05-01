@@ -329,6 +329,8 @@ func eventCallbackProc(f uintptr, args uintptr, argcount int) uintptr {
 
 	case *TAlignPositionEvent:
 		v = *(v.(*TAlignPositionEvent))
+
+	case TNotifyEvent:
 	default:
 		fmt.Printf("unknown event func pointer: %#v, %T\n", v, v)
 	}
