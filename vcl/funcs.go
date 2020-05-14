@@ -41,7 +41,7 @@ func MessageDlg(Msg string, DlgType TMsgDlgType, Buttons ...uint8) int32 {
 // EN: Checks if the interface is instantiated, and returns an instance pointer if it has been instantiated.
 //go:noinline
 func CheckPtr(value interface{}) uintptr {
-	fmt.Printf("value: %#v\n", value)
+	// fmt.Printf("value: %#v\n", value)
 	switch value.(type) {
 	case IObject:
 		if reflect.ValueOf(value).Pointer() == 0 {
