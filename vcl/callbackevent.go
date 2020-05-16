@@ -10,9 +10,10 @@ package vcl
 
 import (
 	"fmt"
+	"unsafe"
+
 	. "github.com/topxeq/govcl/vcl/api"
 	. "github.com/topxeq/govcl/vcl/types"
-	"unsafe"
 )
 
 // 外部回调事件
@@ -334,94 +335,6 @@ func eventCallbackProc(f uintptr, args uintptr, argcount int) uintptr {
 	default:
 		fmt.Printf("unknown event func pointer: %#v, %T\n", v, v)
 	}
-
-	// typeT := fmt.Sprintf("%T", v)
-
-	// var p *TNotifyEvent = nil
-
-	// if typeT[0] == '*' {
-	// 	v = *(v.(*(interface{})))
-	// }
-
-	// if typeT == "*vcl.TNotifyEvent" {
-	// 	v = *(v.(*TNotifyEvent))
-	// } else if typeT == "*vcl.TDragOverEvent" {
-	// 	v = *(v.(*TDragOverEvent))
-	// } else if typeT == "*vcl.TEndDragEvent" {
-	// 	v = *(v.(*TEndDragEvent))
-	// } else if typeT == "*vcl.TContextPopupEvent" {
-	// 	v = *(v.(*TContextPopupEvent))
-	// } else if typeT == "*vcl.TDragDropEvent" {
-	// 	v = *(v.(*TDragDropEvent))
-	// } else if typeT == "*vcl.TKeyEvent" {
-	// 	v = *(v.(*TKeyEvent))
-	// } else if typeT == "*vcl.TKeyPressEvent" {
-	// 	v = *(v.(*TKeyPressEvent))
-	// } else if typeT == "*vcl.TMouseEvent" {
-	// 	v = *(v.(*TMouseEvent))
-	// } else if typeT == "*vcl.TMouseMoveEvent" {
-	// 	v = *(v.(*TMouseMoveEvent))
-	// } else if typeT == "*vcl.THelpEvent" {
-	// 	v = *(v.(*THelpEvent))
-	// } else if typeT == "*vcl.TConstrainedResizeEvent" {
-	// 	v = *(v.(*TConstrainedResizeEvent))
-	// } else if typeT == "*vcl.TWndProcEvent" {
-	// 	v = *(v.(*TWndProcEvent))
-	// } else if typeT == "*vcl.TDropFilesEvent" {
-	// 	v = *(v.(*TDropFilesEvent))
-	// } else if typeT == "*vcl.TUDClickEvent" {
-	// 	v = *(v.(*TUDClickEvent))
-	// } else if typeT == "*vcl.TCloseEvent" {
-	// 	v = *(v.(*TCloseEvent))
-	// } else if typeT == "*vcl.TCloseQueryEvent" {
-	// 	v = *(v.(*TCloseQueryEvent))
-	// } else if typeT == "*vcl.TMenuChangeEvent" {
-	// 	v = *(v.(*TMenuChangeEvent))
-	// } else if typeT == "*vcl.TSysLinkEvent" {
-	// 	v = *(v.(*TSysLinkEvent))
-	// } else if typeT == "*vcl.TExceptionEvent" {
-	// 	v = *(v.(*TExceptionEvent))
-	// } else if typeT == "*vcl.TMouseWheelEvent" {
-	// 	v = *(v.(*TMouseWheelEvent))
-	// } else if typeT == "*vcl.TDrawItemEvent" {
-	// 	v = *(v.(*TDrawItemEvent))
-	// } else if typeT == "*vcl.TMenuDrawItemEvent" {
-	// 	v = *(v.(*TMenuDrawItemEvent))
-	// } else if typeT == "*vcl.TShortCutEvent" {
-	// 	v = *(v.(*TShortCutEvent))
-	// } else if typeT == "*vcl.TStartDragEvent" {
-	// 	v = *(v.(*TStartDragEvent))
-	// } else if typeT == "*vcl.TDockDropEvent" {
-	// 	v = *(v.(*TDockDropEvent))
-	// } else if typeT == "*vcl.TDockOverEvent" {
-	// 	v = *(v.(*TDockOverEvent))
-	// } else if typeT == "*vcl.TDockOverEvent" {
-	// 	v = *(v.(*TDockOverEvent))
-	// } else if typeT == "*vcl.TUnDockEvent" {
-	// 	v = *(v.(*TUnDockEvent))
-	// } else if typeT == "*vcl.TStartDockEvent" {
-	// 	v = *(v.(*TStartDockEvent))
-	// } else if typeT == "*vcl.TGetSiteInfoEvent" {
-	// 	v = *(v.(*TGetSiteInfoEvent))
-	// } else if typeT == "*vcl.TMouseWheelUpDownEvent" {
-	// 	v = *(v.(*TMouseWheelUpDownEvent))
-	// } else if typeT == "*vcl.TMessageEvent" {
-	// 	v = *(v.(*TMessageEvent))
-	// } else if typeT == "*vcl.TMouseActivateEvent" {
-	// 	v = *(v.(*TMouseActivateEvent))
-	// } else if typeT == "*vcl.TWindowPreviewItemRequestEvent" {
-	// 	v = *(v.(*TWindowPreviewItemRequestEvent))
-	// } else if typeT == "*vcl.TWndProcEvent" {
-	// 	v = *(v.(*TWndProcEvent))
-	// } else if typeT == "*vcl.TAlignPositionEvent" {
-	// 	v = *(v.(*TAlignPositionEvent))
-	// } else if typeT == "*vcl.TTaskDlgTimerEvent" {
-	// 	v = *(v.(*TTaskDlgTimerEvent))
-	// } else if typeT == "*vcl.TTaskDlgClickEvent" {
-	// 	v = *(v.(*TTaskDlgClickEvent))
-	// } else {
-	// 	fmt.Printf("unknown event func pointer: %#v, %#v, %#v, %#v, %T\n", argcount, args, getParamOf(0, args), v, v)
-	// }
 
 	if ok {
 

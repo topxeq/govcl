@@ -135,10 +135,14 @@ var (
 	dGetLibResouceCount = (*dylib.LazyProc)(nil)
 	dGetLibResouceItem  = (*dylib.LazyProc)(nil)
 	dModifyLibResouce   = (*dylib.LazyProc)(nil)
+	dLibAbout           = (*dylib.LazyProc)(nil)
 
 	// 库的信息
 	dLibStringEncoding = (*dylib.LazyProc)(nil)
 	dLibVersion        = (*dylib.LazyProc)(nil)
+
+	dMainThreadId    = (*dylib.LazyProc)(nil)
+	dCurrentThreadId = (*dylib.LazyProc)(nil)
 )
 
 func DoDefInit() {
@@ -264,9 +268,12 @@ func DoDefInit() {
 	dGetLibResouceCount = libvcl.NewProc("DGetLibResouceCount")
 	dGetLibResouceItem = libvcl.NewProc("DGetLibResouceItem")
 	dModifyLibResouce = libvcl.NewProc("DModifyLibResouce")
+	dLibAbout = libvcl.NewProc("DLibAbout")
 
 	// 库的信息
 	dLibStringEncoding = libvcl.NewProc("DLibStringEncoding")
 	dLibVersion = libvcl.NewProc("DLibVersion")
 
+	dMainThreadId = libvcl.NewProc("DMainThreadId")
+	dCurrentThreadId = libvcl.NewProc("DCurrentThreadId")
 }

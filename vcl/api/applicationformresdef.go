@@ -26,7 +26,6 @@ func DoResInit() {
 	resFormLoadFromStream = libvcl.NewProc("ResFormLoadFromStream")
 	resFormLoadFromFile = libvcl.NewProc("ResFormLoadFromFile")
 	resFormLoadFromResourceName = libvcl.NewProc("ResFormLoadFromResourceName")
-
 }
 
 // ResFormLoadFromStream

@@ -8,9 +8,10 @@
 
 package api
 
+import "runtime"
+
 import (
 	"github.com/ying32/dylib"
-	"runtime"
 )
 
 var (
@@ -25,9 +26,6 @@ var (
 func DoLibInit() {
 	// 全局导入库
 	libvcl = loadUILib()
-
-	// 初始导入字符串指针函数
-	_ = initStdString()
 
 }
 

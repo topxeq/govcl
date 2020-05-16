@@ -9,6 +9,10 @@ import (
 	"github.com/topxeq/govcl/vcl/types"
 )
 
+//::private::
+type TForm1Fields struct {
+}
+
 func (f *TForm1) OnFormCreate(sender vcl.IObject) {
 	fmt.Println(Form1.Caption(), f.PixelsPerInch())
 

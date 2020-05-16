@@ -74,10 +74,6 @@ func (f *TForm) SetOnDestroy(fn *TNotifyEvent) {
 	Form_SetOnDestroy(f.instance, fn)
 }
 
-func (f *TForm) SetOnDestroyV(fn TNotifyEvent) {
-	Form_SetOnDestroy(f.instance, fn)
-}
-
 // 约束窗口大小事件
 func (f *TForm) SetOnConstrainedResize(fn TConstrainedResizeEvent) {
 	Form_SetOnConstrainedResize(f.instance, fn)

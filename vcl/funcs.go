@@ -41,7 +41,6 @@ func MessageDlg(Msg string, DlgType TMsgDlgType, Buttons ...uint8) int32 {
 // EN: Checks if the interface is instantiated, and returns an instance pointer if it has been instantiated.
 //go:noinline
 func CheckPtr(value interface{}) uintptr {
-	// fmt.Printf("value: %#v\n", value)
 	switch value.(type) {
 	case IObject:
 		if reflect.ValueOf(value).Pointer() == 0 {
@@ -70,8 +69,37 @@ func getInstance(value interface{}) (uintptr, unsafe.Pointer) {
 		// CN: 一个对象来自已经存在的对象实例。
 		// EN: An object from an existing object instance.
 		ptr = CheckPtr(value)
+	default:
+		// 尝试
+		ptr = getUIntPtr(value)
 	}
 	return ptr, unsafe.Pointer(ptr)
+}
+
+func getUIntPtr(v interface{}) uintptr {
+	switch v.(type) {
+	case int:
+		return uintptr(v.(int))
+	case uint:
+		return uintptr(v.(uint))
+	case int8:
+		return uintptr(v.(int8))
+	case uint8:
+		return uintptr(v.(uint8))
+	case int16:
+		return uintptr(v.(int16))
+	case uint16:
+		return uintptr(v.(uint16))
+	case int32:
+		return uintptr(v.(int32))
+	case uint32:
+		return uintptr(v.(uint32))
+	case int64:
+		return uintptr(v.(int64))
+	case uint64:
+		return uintptr(v.(uint64))
+	}
+	return 0
 }
 
 // CN: 选择目录。
