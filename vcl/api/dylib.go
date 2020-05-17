@@ -8,9 +8,9 @@
 
 package api
 
-import "runtime"
-
 import (
+	"runtime"
+
 	"github.com/ying32/dylib"
 )
 

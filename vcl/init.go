@@ -51,7 +51,7 @@ func DoInit() {
 		}
 	}()
 	libVersion := DLibVersion()
-	fmt.Println("Library Version:", toVersionString(libVersion))
+	// fmt.Println("Library Version:", toVersionString(libVersion))
 	if libVersion < requireMinBinaryVersion {
 		panic("Require liblcl binary version >=2.0.2. Please go to \"https://github.com/ying32/govcl\" to download the latest binary.")
 	}
