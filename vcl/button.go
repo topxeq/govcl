@@ -9,9 +9,10 @@
 package vcl
 
 import (
+	"unsafe"
+
 	. "github.com/topxeq/govcl/vcl/api"
 	. "github.com/topxeq/govcl/vcl/types"
-	"unsafe"
 )
 
 type TButton struct {
@@ -674,83 +675,83 @@ func (b *TButton) SetOnClick(fn *TNotifyEvent) {
 
 // CN: 设置上下文弹出事件，一般是右键时弹出。
 // EN: Set Context popup event, usually pop up when right click.
-func (b *TButton) SetOnContextPopup(fn TContextPopupEvent) {
+func (b *TButton) SetOnContextPopup(fn *TContextPopupEvent) {
 	Button_SetOnContextPopup(b.instance, fn)
 }
 
 // CN: 设置拖拽下落事件。
 // EN: Set Drag and drop event.
-func (b *TButton) SetOnDragDrop(fn TDragDropEvent) {
+func (b *TButton) SetOnDragDrop(fn *TDragDropEvent) {
 	Button_SetOnDragDrop(b.instance, fn)
 }
 
 // CN: 设置拖拽完成事件。
 // EN: Set Drag and drop completion event.
-func (b *TButton) SetOnDragOver(fn TDragOverEvent) {
+func (b *TButton) SetOnDragOver(fn *TDragOverEvent) {
 	Button_SetOnDragOver(b.instance, fn)
 }
 
 // CN: 设置拖拽结束。
 // EN: Set End of drag.
-func (b *TButton) SetOnEndDrag(fn TEndDragEvent) {
+func (b *TButton) SetOnEndDrag(fn *TEndDragEvent) {
 	Button_SetOnEndDrag(b.instance, fn)
 }
 
 // CN: 设置焦点进入。
 // EN: Set Focus entry.
-func (b *TButton) SetOnEnter(fn TNotifyEvent) {
+func (b *TButton) SetOnEnter(fn *TNotifyEvent) {
 	Button_SetOnEnter(b.instance, fn)
 }
 
 // CN: 设置焦点退出。
 // EN: Set Focus exit.
-func (b *TButton) SetOnExit(fn TNotifyEvent) {
+func (b *TButton) SetOnExit(fn *TNotifyEvent) {
 	Button_SetOnExit(b.instance, fn)
 }
 
 // CN: 设置键盘按键按下事件。
 // EN: Set Keyboard button press event.
-func (b *TButton) SetOnKeyDown(fn TKeyEvent) {
+func (b *TButton) SetOnKeyDown(fn *TKeyEvent) {
 	Button_SetOnKeyDown(b.instance, fn)
 }
 
-func (b *TButton) SetOnKeyPress(fn TKeyPressEvent) {
+func (b *TButton) SetOnKeyPress(fn *TKeyPressEvent) {
 	Button_SetOnKeyPress(b.instance, fn)
 }
 
 // CN: 设置键盘按键抬起事件。
 // EN: Set Keyboard button lift event.
-func (b *TButton) SetOnKeyUp(fn TKeyEvent) {
+func (b *TButton) SetOnKeyUp(fn *TKeyEvent) {
 	Button_SetOnKeyUp(b.instance, fn)
 }
 
 // CN: 设置鼠标按下事件。
 // EN: Set Mouse down event.
-func (b *TButton) SetOnMouseDown(fn TMouseEvent) {
+func (b *TButton) SetOnMouseDown(fn *TMouseEvent) {
 	Button_SetOnMouseDown(b.instance, fn)
 }
 
 // CN: 设置鼠标进入事件。
 // EN: Set Mouse entry event.
-func (b *TButton) SetOnMouseEnter(fn TNotifyEvent) {
+func (b *TButton) SetOnMouseEnter(fn *TNotifyEvent) {
 	Button_SetOnMouseEnter(b.instance, fn)
 }
 
 // CN: 设置鼠标离开事件。
 // EN: Set Mouse leave event.
-func (b *TButton) SetOnMouseLeave(fn TNotifyEvent) {
+func (b *TButton) SetOnMouseLeave(fn *TNotifyEvent) {
 	Button_SetOnMouseLeave(b.instance, fn)
 }
 
 // CN: 设置鼠标移动事件。
 // EN: .
-func (b *TButton) SetOnMouseMove(fn TMouseMoveEvent) {
+func (b *TButton) SetOnMouseMove(fn *TMouseMoveEvent) {
 	Button_SetOnMouseMove(b.instance, fn)
 }
 
 // CN: 设置鼠标抬起事件。
 // EN: Set Mouse lift event.
-func (b *TButton) SetOnMouseUp(fn TMouseEvent) {
+func (b *TButton) SetOnMouseUp(fn *TMouseEvent) {
 	Button_SetOnMouseUp(b.instance, fn)
 }
 

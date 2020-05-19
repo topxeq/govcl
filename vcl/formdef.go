@@ -65,7 +65,7 @@ func (f *TForm) AllowDropFiles() bool {
 }
 
 // 窗口文件拖放事件
-func (f *TForm) SetOnDropFiles(fn TDropFilesEvent) {
+func (f *TForm) SetOnDropFiles(fn *TDropFilesEvent) {
 	Form_SetOnDropFiles(f.instance, fn)
 }
 
@@ -75,27 +75,27 @@ func (f *TForm) SetOnDestroy(fn *TNotifyEvent) {
 }
 
 // 约束窗口大小事件
-func (f *TForm) SetOnConstrainedResize(fn TConstrainedResizeEvent) {
+func (f *TForm) SetOnConstrainedResize(fn *TConstrainedResizeEvent) {
 	Form_SetOnConstrainedResize(f.instance, fn)
 }
 
 // 窗口被取消激活事件（失去焦点）
-func (f *TForm) SetOnDeactivate(fn TNotifyEvent) {
+func (f *TForm) SetOnDeactivate(fn *TNotifyEvent) {
 	Form_SetOnDeactivate(f.instance, fn)
 }
 
 // 窗口激活事件（获取焦点）
-func (f *TForm) SetOnActivate(fn TNotifyEvent) {
+func (f *TForm) SetOnActivate(fn *TNotifyEvent) {
 	Form_SetOnActivate(f.instance, fn)
 }
 
 // 样式已改变事件，为解决样式切换后的问题特意加上的
-func (f *TForm) SetOnStyleChanged(fn TNotifyEvent) {
+func (f *TForm) SetOnStyleChanged(fn *TNotifyEvent) {
 	Form_SetOnStyleChanged(f.instance, fn)
 }
 
 // 窗口消息过程
-func (f *TForm) SetOnWndProc(fn TWndProcEvent) {
+func (f *TForm) SetOnWndProc(fn *TWndProcEvent) {
 	Form_SetOnWndProc(f.instance, fn)
 }
 

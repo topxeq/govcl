@@ -9,9 +9,10 @@
 package vcl
 
 import (
+	"unsafe"
+
 	. "github.com/topxeq/govcl/vcl/api"
 	. "github.com/topxeq/govcl/vcl/types"
-	"unsafe"
 )
 
 type TEdit struct {
@@ -826,55 +827,55 @@ func (e *TEdit) SetVisible(value bool) {
 
 // CN: 设置改变事件。
 // EN: Set changed event.
-func (e *TEdit) SetOnChange(fn TNotifyEvent) {
+func (e *TEdit) SetOnChange(fn *TNotifyEvent) {
 	Edit_SetOnChange(e.instance, fn)
 }
 
 // CN: 设置控件单击事件。
 // EN: Set control click event.
-func (e *TEdit) SetOnClick(fn TNotifyEvent) {
+func (e *TEdit) SetOnClick(fn *TNotifyEvent) {
 	Edit_SetOnClick(e.instance, fn)
 }
 
 // CN: 设置上下文弹出事件，一般是右键时弹出。
 // EN: Set Context popup event, usually pop up when right click.
-func (e *TEdit) SetOnContextPopup(fn TContextPopupEvent) {
+func (e *TEdit) SetOnContextPopup(fn *TContextPopupEvent) {
 	Edit_SetOnContextPopup(e.instance, fn)
 }
 
 // CN: 设置双击事件。
 // EN: .
-func (e *TEdit) SetOnDblClick(fn TNotifyEvent) {
+func (e *TEdit) SetOnDblClick(fn *TNotifyEvent) {
 	Edit_SetOnDblClick(e.instance, fn)
 }
 
 // CN: 设置拖拽下落事件。
 // EN: Set Drag and drop event.
-func (e *TEdit) SetOnDragDrop(fn TDragDropEvent) {
+func (e *TEdit) SetOnDragDrop(fn *TDragDropEvent) {
 	Edit_SetOnDragDrop(e.instance, fn)
 }
 
 // CN: 设置拖拽完成事件。
 // EN: Set Drag and drop completion event.
-func (e *TEdit) SetOnDragOver(fn TDragOverEvent) {
+func (e *TEdit) SetOnDragOver(fn *TDragOverEvent) {
 	Edit_SetOnDragOver(e.instance, fn)
 }
 
 // CN: 设置拖拽结束。
 // EN: Set End of drag.
-func (e *TEdit) SetOnEndDrag(fn TEndDragEvent) {
+func (e *TEdit) SetOnEndDrag(fn *TEndDragEvent) {
 	Edit_SetOnEndDrag(e.instance, fn)
 }
 
 // CN: 设置焦点进入。
 // EN: Set Focus entry.
-func (e *TEdit) SetOnEnter(fn TNotifyEvent) {
+func (e *TEdit) SetOnEnter(fn *TNotifyEvent) {
 	Edit_SetOnEnter(e.instance, fn)
 }
 
 // CN: 设置焦点退出。
 // EN: Set Focus exit.
-func (e *TEdit) SetOnExit(fn TNotifyEvent) {
+func (e *TEdit) SetOnExit(fn *TNotifyEvent) {
 	Edit_SetOnExit(e.instance, fn)
 }
 
@@ -896,31 +897,31 @@ func (e *TEdit) SetOnKeyUp(fn *TKeyEvent) {
 
 // CN: 设置鼠标按下事件。
 // EN: Set Mouse down event.
-func (e *TEdit) SetOnMouseDown(fn TMouseEvent) {
+func (e *TEdit) SetOnMouseDown(fn *TMouseEvent) {
 	Edit_SetOnMouseDown(e.instance, fn)
 }
 
 // CN: 设置鼠标进入事件。
 // EN: Set Mouse entry event.
-func (e *TEdit) SetOnMouseEnter(fn TNotifyEvent) {
+func (e *TEdit) SetOnMouseEnter(fn *TNotifyEvent) {
 	Edit_SetOnMouseEnter(e.instance, fn)
 }
 
 // CN: 设置鼠标离开事件。
 // EN: Set Mouse leave event.
-func (e *TEdit) SetOnMouseLeave(fn TNotifyEvent) {
+func (e *TEdit) SetOnMouseLeave(fn *TNotifyEvent) {
 	Edit_SetOnMouseLeave(e.instance, fn)
 }
 
 // CN: 设置鼠标移动事件。
 // EN: .
-func (e *TEdit) SetOnMouseMove(fn TMouseMoveEvent) {
+func (e *TEdit) SetOnMouseMove(fn *TMouseMoveEvent) {
 	Edit_SetOnMouseMove(e.instance, fn)
 }
 
 // CN: 设置鼠标抬起事件。
 // EN: Set Mouse lift event.
-func (e *TEdit) SetOnMouseUp(fn TMouseEvent) {
+func (e *TEdit) SetOnMouseUp(fn *TMouseEvent) {
 	Edit_SetOnMouseUp(e.instance, fn)
 }
 
