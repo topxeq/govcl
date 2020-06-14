@@ -14,20 +14,35 @@ import (
 	"unsafe"
 
 	. "github.com/topxeq/govcl/vcl/types"
+	"github.com/ying32/dylib"
 )
 
 var (
-	dSendMessage         = libvcl.NewProc("DSendMessage")
-	dPostMessage         = libvcl.NewProc("DPostMessage")
-	dIsIconic            = libvcl.NewProc("DIsIconic")
-	dIsWindow            = libvcl.NewProc("DIsWindow")
-	dIsZoomed            = libvcl.NewProc("DIsZoomed")
-	dIsWindowVisible     = libvcl.NewProc("DIsWindowVisible")
-	dGetDC               = libvcl.NewProc("DGetDC")
-	dReleaseDC           = libvcl.NewProc("DReleaseDC")
-	dSetForegroundWindow = libvcl.NewProc("DSetForegroundWindow")
-	dWindowFromPoint     = libvcl.NewProc("DWindowFromPoint")
+	dSendMessage         = (*dylib.LazyProc)(nil)
+	dPostMessage         = (*dylib.LazyProc)(nil)
+	dIsIconic            = (*dylib.LazyProc)(nil)
+	dIsWindow            = (*dylib.LazyProc)(nil)
+	dIsZoomed            = (*dylib.LazyProc)(nil)
+	dIsWindowVisible     = (*dylib.LazyProc)(nil)
+	dGetDC               = (*dylib.LazyProc)(nil)
+	dReleaseDC           = (*dylib.LazyProc)(nil)
+	dSetForegroundWindow = (*dylib.LazyProc)(nil)
+	dWindowFromPoint     = (*dylib.LazyProc)(nil)
 )
+
+func InitIntf() {
+	dSendMessage = libvcl.NewProc("DSendMessage")
+	dPostMessage = libvcl.NewProc("DPostMessage")
+	dIsIconic = libvcl.NewProc("DIsIconic")
+	dIsWindow = libvcl.NewProc("DIsWindow")
+	dIsZoomed = libvcl.NewProc("DIsZoomed")
+	dIsWindowVisible = libvcl.NewProc("DIsWindowVisible")
+	dGetDC = libvcl.NewProc("DGetDC")
+	dReleaseDC = libvcl.NewProc("DReleaseDC")
+	dSetForegroundWindow = libvcl.NewProc("DSetForegroundWindow")
+	dWindowFromPoint = libvcl.NewProc("DWindowFromPoint")
+
+}
 
 func DSendMessage(hWd HWND, msg uint32, wParam, lParam uintptr) uintptr {
 	r, _, _ := dSendMessage.Call(hWd, uintptr(msg), wParam, lParam)
